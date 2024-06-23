@@ -1,42 +1,3 @@
-// const getDesignStrength = (height, width, bendingMoment, quality, nominalMoment, setNominalMoment, setFrame) => {
-    
-//     if (!height || !width || !bendingMoment || !quality) {
-//         alert("Todos los campos son obligatorios");
-//         return;
-//     }
-//     const d = parseFloat(height);
-//     const b = parseFloat(width);
-//     const r = parseFloat(quality);
-//     const Ms = parseFloat(bendingMoment);
-
-//     let aMax;
-
-//     if (r < 280) {
-//         aMax = d*(3/8)*0.85
-//     } else {
-//         aMax = d*(3/8)*(0.85 - 0.05*((r - 280)/70))
-//     }
-
-//     const fzCc = 0.85*r*b*aMax;
-//     const Mu = (fzCc*(d-((aMax)/2)))/100000;
-
-//     setNominalMoment(Mu);
-
-//     let designMoment;
-    
-//     if (Ms <= (Mu*0.9)) {
-//         setFrame('Solo se necesita armadura a tracción')
-//         designMoment = Ms
-//     } else {
-//         setFrame('Se necesita armar a tracción y a compresión')
-//     }
-//     console.log(designMoment)
-
-
-// };
-
-// export default getDesignStrength;
-
 const getDesignStrength = (height, width, bendingMoment, quality, setNominalMoment, setFrame) => {
     if (!height || !width || !bendingMoment || !quality) {
         alert("Todos los campos son obligatorios");
@@ -90,7 +51,7 @@ const getDesignStrength = (height, width, bendingMoment, quality, setNominalMome
 
     const a = solveQuadraticForA(designMoment, r, b, d);
     console.log(`Valor positivo de a: ${a}`);
-    // return a;
+    return a;
 
     const strain = (0.003*(d-(a/0.85)))/(a/0.85)
 
